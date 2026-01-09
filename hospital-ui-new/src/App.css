@@ -1,0 +1,194 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #2c3e50; /* Koyu Lacivert (Sidebar) */
+  --accent-color: #3498db;  /* Mavi (Butonlar/Linkler) */
+  --success-color: #27ae60; /* Yeşil (Ekleme/Onay) */
+  --danger-color: #e74c3c;  /* Kırmızı (Silme/İptal) */
+  --bg-color: #f4f7f6;      /* Açık Gri (Ana Arka Plan) */
+  --card-bg: #ffffff;       /* Beyaz (Kartlar) */
+  --text-color: #333333;
+  --sidebar-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* --- LAYOUT (SIDEBAR + MAIN) --- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 20px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateX(5px);
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  padding: 40px;
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* --- KART TASARIMI --- */
+.page-container {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* --- FORMLAR --- */
+input, select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  font-family: inherit;
+  transition: border 0.3s;
+  color: #333;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* --- BUTONLAR --- */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Özel Buton Renkleri */
+button[style*="green"], .btn-save { background-color: var(--success-color) !important; }
+button[style*="red"], .btn-delete { background-color: var(--danger-color) !important; }
+button[style*="orange"], .btn-edit { background-color: #f39c12 !important; }
+button[style*="gray"], .btn-cancel { background-color: #95a5a6 !important; }
+
+/* --- TABLOLAR --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.02);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 500;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* --- LISTELER (UL/LI) --- */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 5px solid var(--accent-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

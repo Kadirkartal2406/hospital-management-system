@@ -1,0 +1,97 @@
+POST http://localhost:8080/api/hasta
+Content-Type: application/json
+
+{
+  "hastaID": 213,
+  "adSoyad": "yusuf",
+  "yas": 45,
+  "hastalik": "astigmat"
+}
+###
+PUT http://localhost:8080/api/hasta/24?newHastaId=2&adSoyad=ali&yas=34&hastalik=kalp
+###
+DELETE http://localhost:8080/api/doktor/{{hastaID}}
+###
+GET http://localhost:8080/api/doktor
+###
+POST http://localhost:8080/api/doktor
+Content-Type: application/json
+
+{
+  "doktorID": 65,
+  "adSoyad": "selim",
+  "uzmanlik": "KBB",
+  "tibbiBirim": {
+    "birimID": 3
+  }
+}
+###
+PUT http://localhost:8080/api/doktor/569?adSoyad=ahmet&uzmanlik=ortopedi&birimID=7;
+###
+PUT http://localhost:8080/api/doktor/65
+Content-Type: application/json
+
+{
+  "adSoyad": "selim",
+  "uzmanlik": "ortopedi",
+  "tibbiBirim": {
+    "birimID": 7
+  }
+}
+###
+GET http://localhost:8080/api/tibbiBirim
+###
+POST http://localhost:8080/api/tibbiBirim
+Content-Type: application/json
+
+{
+  "birimAdi": "psikiyatri"
+}
+###
+PUT http://localhost:8080/api/tibbiBirim/5?birimAdi=KBB
+###
+POST http://localhost:8080/api/tibbiBirim
+Content-Type: application/json
+
+{
+  "birimAdi": "ortopedi",
+  "birimID": 7
+}
+###
+PUT http://localhost:8080/api/doktor/569?adSoyad=Ali&uzmanlik=kardiolog&birimId=3
+###
+GET http://localhost:8080/api/hastaKayit
+###
+POST http://localhost:8080/api/hastaKayit
+Content-Type: application/json
+
+{
+  "hasta": {
+    "hastaID": 213
+  },
+  "doktor": {
+    "doktorID": 5
+  },
+  "tibbiBirim": {
+    "birimID": 3
+  },
+  "durum": "Acil"
+}
+
+###
+PUT http://localhost:8080/api/hastaKayit/1
+Content-Type: application/json
+
+{
+  "hasta": {
+    "hastaID": 2
+  },
+  "doktor": {
+    "doktorID": 5
+  },
+  "tibbiBirim": {
+    "birimID": 3
+  },
+  "durum": "Güncellendi"
+}
+

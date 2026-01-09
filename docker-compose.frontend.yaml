@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  hospital-ui:
+    image: my-react-app
+    container_name: hospital-ui-container
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true
+

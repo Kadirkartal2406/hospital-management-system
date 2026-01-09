@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  hospital-app:
+    image: hospital-app:latest
+    container_name: hospital-app
+    ports:
+      - "8090:8080"  # DİKKAT: Dışarıya 8090 portundan açıyorsun
+    environment:
+      # Standart Spring Boot değişkenleri
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/hastane
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - app-network
+    depends_on:
+      - postgres-db # Backend'in DB'den sonra başlamasını garanti eder
+
+networks:
+  app-network:
+    external: true
